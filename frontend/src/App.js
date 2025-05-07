@@ -19,7 +19,8 @@ function App() {
 
   const fetchLocation = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/location');
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/location`);
+
       const { latitude, longitude } = res.data;
       const newPos = [latitude, longitude];
       setPosition(newPos);
